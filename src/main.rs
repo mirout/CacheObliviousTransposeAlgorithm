@@ -89,10 +89,10 @@ fn main() {
         let a = Matrix::new_random(n, n);
         let now = SystemTime::now();
         a.transpose();
-        println!(SystemTime::now().duration_since(now).unwrap().as_millis());
+        println!("Naive time: {}ms", SystemTime::now().duration_since(now).unwrap().as_millis());
 
         let now = SystemTime::now();
         a.fast_transpose();
-        println!(SystemTime::now().duration_since(now).unwrap().as_millis());
+        println!("Fast time: {}ms", SystemTime::now().duration_since(now).unwrap().as_millis());
     }
 }
