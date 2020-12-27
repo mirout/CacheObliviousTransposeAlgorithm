@@ -80,19 +80,18 @@ impl std::cmp::PartialEq for Matrix {
 }
 
 fn main() {
-    for n in (0..35001).step_by(1000) {
-        if n == 0 {
-            continue;
-        }
+    for n in (1000..35001).step_by(1000) {
 
         println!("Matrix size {0}x{0}", n);
-        let a = Matrix::new_random(n, n);
-        let now = SystemTime::now();
-        a.transpose();
-        println!("Naive time: {}ms", SystemTime::now().duration_since(now).unwrap().as_millis());
 
-        let now = SystemTime::now();
+        let a = Matrix::new_random(n, n);
+
+        let start = SystemTime::now();
+        a.transpose();
+        println!("Naive time: {}ms", SystemTime::now().duration_since(start).unwrap().as_millis());
+
+        let start = SystemTime::now();
         a.fast_transpose();
-        println!("Fast time: {}ms", SystemTime::now().duration_since(now).unwrap().as_millis());
+        println!("Fast time: {}ms", SystemTime::now().duration_since(start).unwrap().as_millis());
     }
 }
