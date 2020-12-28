@@ -78,7 +78,7 @@ pub mod matrix {
         }
     }
 
-    impl std::cmp::PartialEq for Matrix {
+    impl std::cmp::PartialEq for Matrix { //implementation trait for equal two matrix
         fn eq(&self, other: &Self) -> bool {
             self.matrix == other.matrix
         }
