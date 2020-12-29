@@ -55,9 +55,9 @@ pub mod matrix {
         fn fast_transpose_with_recursion(&self, x: usize, y: usize, dx: usize, dy: usize, out: &mut Matrix) {
             /*
             x, y - submatrix start
-            dx, dy - submatrix end
+            dx, dy - submatrix size
             out - transposed matrix (size: MxN)
-             */
+            */
             if dx == 1 && dy == 1 {
                 out.matrix[y][x] = self.matrix[x][y];
             } else if dx >= dy {
@@ -78,7 +78,7 @@ pub mod matrix {
         }
     }
 
-    impl std::cmp::PartialEq for Matrix { //implementation trait for equal two matrix
+    impl std::cmp::PartialEq for Matrix { //implementation trait to check for equality
         fn eq(&self, other: &Self) -> bool {
             self.matrix == other.matrix
         }
