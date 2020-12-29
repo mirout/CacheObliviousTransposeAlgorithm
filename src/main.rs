@@ -11,7 +11,7 @@ fn main() {
         for n in (1000..35001).step_by(1000) {
             println!("Matrix size {0}x{0}", n);
 
-            let a = Matrix::new_random(n, 5000);
+            let a = Matrix::new_random(n, n);
 
             let start = SystemTime::now();
             a.transpose();
